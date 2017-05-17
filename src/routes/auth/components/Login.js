@@ -14,7 +14,7 @@ export default class Login extends React.Component {
           </div>
 
           <span id="extr-page-header-space"> <span className="hidden-mobile hiddex-xs">Need an account?</span>&nbsp;<a
-            href="#/register" className="btn btn-danger">Create account</a> </span>
+            href="/register" className="btn btn-danger">Create account</a> </span>
 
         </header>
         <div id="main" role="main" className="animated fadeInDown">
