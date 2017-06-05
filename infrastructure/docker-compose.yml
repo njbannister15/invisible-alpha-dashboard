@@ -3,5 +3,40 @@ services:
   postgres:
     image: postgres:9.6.3
     environment:
-      POSTGRES_PASSWORD: 'mysecretpasswor'
-      
+      POSTGRES_PASSWORD: 'administrator'
+    ports:
+      - "5432:5432"
+  kafka:
+    image: spotify/kafka
+    environment:
+      ADVERTISED_PORT: 9092
+    ports:
+      - "2181:2181"
+      - "9092:9092"
+  kafka-manager:
+    build: 
+      context: './kafka-manager'
+    links:
+      - kafka
+    environment:
+      ZK_HOSTS: kafka:2181
+    ports:
+      - "9000:9000"
+  trifecta-ui:
+    build: 
+      context: './trifecta-ui'
+    links:
+      - kafka
+    environment:
+      ZK_HOSTS: kafka:2181
+    ports:
+      - "9001:9000"
+  pgadmin:
+    image: thajeztah/pgadmin4
+    ports: 
+      - "5050:5050"
+    links:
+      - postgres
+
+
+

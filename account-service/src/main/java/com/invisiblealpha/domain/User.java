@@ -51,5 +51,4 @@ public class User {
 		this.password = PASSWORD_ENCODER.encode(password);
 	}
 
-
 }
