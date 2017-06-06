@@ -12,14 +12,6 @@ import com.invisiblealpha.domain.User;
 public interface IUserCommandService {
 	
 	User registerNewUser(String username, String email, String password, String appUrl) throws Exception;
-
-	void updateUserPassword(User user, String password, String oldPassword);
-
-	void changeUserPassword(User user, String password);
-
-	void resetPassword(String email, String appUrl);	
-
-	void updateUser(User user);
 	
 	/* Development Learning Notes:
 	 * The Application Service Layer in Domain Driven Design represents the tasks the system 

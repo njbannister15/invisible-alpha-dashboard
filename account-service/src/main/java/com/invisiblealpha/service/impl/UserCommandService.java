@@ -4,8 +4,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.invisiblealpha.domain.User;
-import com.invisiblealpha.domain.events.MessageDispatcher;
-import com.invisiblealpha.domain.events.UserRegisteredEventV1;
+import com.invisiblealpha.domain.events.impl.MessageDispatcher;
+import com.invisiblealpha.domain.events.impl.UserRegisteredEventV1;
 import com.invisiblealpha.repositories.UserRepository;
 import com.invisiblealpha.service.IUserCommandService;
 
@@ -39,30 +39,6 @@ public class UserCommandService implements IUserCommandService {
 			return true;
 		}
 		return false;
-	}
-
-	@Override
-	public void updateUserPassword(User user, String password, String oldPassword) {
-		// TODO Auto-generated method stub
-
-	}
-
-	@Override
-	public void changeUserPassword(User user, String password) {
-		// TODO Auto-generated method stub
-
-	}
-
-	@Override
-	public void resetPassword(String email, String appUrl) {
-		// TODO Auto-generated method stub
-
-	}
-
-	@Override
-	public void updateUser(User user) {
-		// TODO Auto-generated method stub
-
 	}
 
 	/*

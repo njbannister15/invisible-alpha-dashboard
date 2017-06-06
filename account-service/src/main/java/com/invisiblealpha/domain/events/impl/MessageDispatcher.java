@@ -1,4 +1,4 @@
-package com.invisiblealpha.domain.events;
+package com.invisiblealpha.domain.events.impl;
 
 import java.util.Properties;
 
@@ -10,6 +10,7 @@ import org.apache.kafka.clients.producer.ProducerRecord;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.invisiblealpha.domain.events.IBaseEvent;
 
 public class MessageDispatcher {
 	private static Producer<String, String> producer;
@@ -28,7 +29,7 @@ public class MessageDispatcher {
 		producer = new KafkaProducer<>(props);
 	}
 
-	public static void dispatch(UserRegisteredEventV1 event) {
+	public static void dispatch(IBaseEvent event) {
 		
 		String uuid =  UUID.randomUUID().toString();
 		ObjectMapper mapper = new ObjectMapper();
