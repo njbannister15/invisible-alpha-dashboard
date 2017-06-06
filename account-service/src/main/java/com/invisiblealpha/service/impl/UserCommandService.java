@@ -4,6 +4,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.invisiblealpha.domain.User;
+import com.invisiblealpha.domain.events.MessageDispatcher;
+import com.invisiblealpha.domain.events.UserRegisteredEventV1;
 import com.invisiblealpha.repositories.UserRepository;
 import com.invisiblealpha.service.IUserCommandService;
 
@@ -15,7 +17,7 @@ public class UserCommandService implements IUserCommandService {
 
 	@Override
 	public User registerNewUser(String firstName, String lastName, String email, String password) throws Exception {
-		
+		System.out.println(firstName);
 		if (emailExist(email)) {
 			throw new Exception("There is an account with the email address: " + email);
 		}
@@ -23,9 +25,8 @@ public class UserCommandService implements IUserCommandService {
 		// Persist the entity
 		User newUser = repository.save( new User(firstName, lastName, email, password)) ;
 
-		if(newUser != null){
-			// TODO: send domain event UserRegisteredEventV1 to the domain model so
-			// other aggregates can update
+		if(newUser != null){			
+			MessageDispatcher.dispatch(new UserRegisteredEventV1(newUser));
 			return newUser;			
 		}else{
 			return null;

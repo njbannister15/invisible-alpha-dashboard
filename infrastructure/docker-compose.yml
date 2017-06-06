@@ -6,29 +6,47 @@ services:
       POSTGRES_PASSWORD: 'administrator'
     ports:
       - "5432:5432"
-  kafka:
-    image: spotify/kafka
-    environment:
-      ADVERTISED_PORT: 9092
+  zookeeper:
+    image: invisible-alpha/zookeeper
     ports:
       - "2181:2181"
-      - "9092:9092"
+  kafka0:
+    image: invisible-alpha/kafka
+    ports:
+      - "29160:9092"
+    environment: 
+      ADVERTISED_HOST: 172.19.0.1
+      ADVERTISED_PORT: 29160
+  kafka1:
+    ports:
+      - "29161:9092"
+    image: invisible-alpha/kafka   
+    environment: 
+      ADVERTISED_HOST: 172.19.0.1
+      ADVERTISED_PORT: 29161
+  kafka2:
+    ports:
+      - "29162:9092"
+    image: invisible-alpha/kafka
+    environment: 
+      ADVERTISED_HOST: 172.19.0.1
+      ADVERTISED_PORT: 29162   
   kafka-manager:
     build: 
       context: './kafka-manager'
     links:
-      - kafka
+      - zookeeper
     environment:
-      ZK_HOSTS: kafka:2181
+      ZK_HOSTS: zookeeper:2181
     ports:
       - "9000:9000"
   trifecta-ui:
     build: 
       context: './trifecta-ui'
     links:
-      - kafka
+      - zookeeper
     environment:
-      ZK_HOSTS: kafka:2181
+      ZK_HOSTS: zookeeper:2181
     ports:
       - "9001:9000"
   pgadmin:
