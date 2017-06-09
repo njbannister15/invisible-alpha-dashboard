@@ -19,4 +19,4 @@ if [ ! -z "$ADVERTISED_PORT" ]; then
 fi
 
 
-JMX_PORT=9999 /app/kafka/bin/kafka-server-start.sh  /app/kafka/config/server.properties
+/app/kafka/bin/kafka-server-start.sh  /app/kafka/config/server.properties

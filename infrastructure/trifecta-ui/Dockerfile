@@ -11,6 +11,9 @@ RUN    touch .trifecta/config.properties
 COPY   run.sh .
 RUN    chmod 775 run.sh
 
+RUN    mkdir -p .trifecta/decoders/user.events.avro
+COPY   userCreatedEventV1.avsc .trifecta/decoders/user.events.avro/.
+
 EXPOSE 9000
 CMD ./run.sh
 
