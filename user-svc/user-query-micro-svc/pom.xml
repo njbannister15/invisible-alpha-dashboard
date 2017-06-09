@@ -3,13 +3,13 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.invisible-alpha</groupId>
-    <artifactId>user-query-micro-svc</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+  <groupId>com.invisiblealpha</groupId>
+  <artifactId>user-query-micro-svc</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
 	<packaging>jar</packaging>
 
 	<parent>
-		<groupId>com.invisible-alpha</groupId>
+		<groupId>com.invisiblealpha</groupId>
 		<artifactId>user-svc-parent</artifactId>
 		<version>0.0.1-SNAPSHOT</version>
 	</parent>
@@ -72,7 +72,7 @@
 		</dependency>
 
 		<dependency>
-			<groupId>com.invisible-alpha</groupId>
+			<groupId>com.invisiblealpha</groupId>
 			<artifactId>user-cmd-micro-svc</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
 			<scope>compile</scope>

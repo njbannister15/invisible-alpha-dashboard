@@ -1,0 +1,7 @@
+/home/nicholas/Workarea-Personal/miniature-umbrella/user-aggregate/user-cmd-micro-svc/src/main/java/com/cmd/dto/RegisterUserCmdDto.java
+/home/nicholas/Workarea-Personal/miniature-umbrella/user-aggregate/user-cmd-micro-svc/src/main/java/com/cmd/event/KafkaEventStore.java
+/home/nicholas/Workarea-Personal/miniature-umbrella/user-aggregate/user-cmd-micro-svc/src/main/java/com/cmd/service/IUserCommandService.java
+/home/nicholas/Workarea-Personal/miniature-umbrella/user-aggregate/user-cmd-micro-svc/src/main/java/com/cmd/service/UserCommandService.java
+/home/nicholas/Workarea-Personal/miniature-umbrella/user-aggregate/user-cmd-micro-svc/src/main/java/com/cmd/UserCmdServiceApplication.java
+/home/nicholas/Workarea-Personal/miniature-umbrella/user-aggregate/user-cmd-micro-svc/src/main/java/com/cmd/controllers/UserCmdController.java
+/home/nicholas/Workarea-Personal/miniature-umbrella/user-aggregate/user-cmd-micro-svc/src/main/java/com/cmd/event/IEventStore.java
