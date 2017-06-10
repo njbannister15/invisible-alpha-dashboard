@@ -1,0 +1,11 @@
+Manifest-Version: 1.0
+Implementation-Title: user-cmd-micro-svc
+Implementation-Version: 0.0.1-SNAPSHOT
+Built-By: nicholas
+Implementation-Vendor-Id: com.invisiblealpha
+Build-Jdk: 1.8.0_111
+Implementation-URL: http://projects.spring.io/spring-boot/user-svc-par
+ ent/user-cmd-micro-svc/
+Created-By: Maven Integration for Eclipse
+Implementation-Vendor: Pivotal Software, Inc.
+
