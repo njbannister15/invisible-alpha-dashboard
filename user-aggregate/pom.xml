@@ -20,6 +20,18 @@
 		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
 
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>org.springframework.cloud</groupId>
+				<artifactId>spring-cloud-dependencies</artifactId>
+				<version>Dalston.SR1</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
+
 	<repositories>
 		<repository>
 			<id>apache-repo</id>
@@ -41,7 +53,7 @@
 	<dependencies>
 		<dependency>
 			<groupId>junit</groupId>
-			<artifactId>junit</artifactId>			
+			<artifactId>junit</artifactId>
 			<scope>test</scope>
 		</dependency>
 	</dependencies>
@@ -50,5 +62,5 @@
 		<module>user-common</module>
 		<module>user-cmd-micro-svc</module>
 		<module>user-query-micro-svc</module>
-</modules> 
+	</modules>
 </project>

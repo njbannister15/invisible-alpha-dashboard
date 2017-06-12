@@ -6,6 +6,8 @@ import java.util.Map;
 import org.apache.kafka.clients.consumer.ConsumerConfig;
 import org.apache.kafka.clients.producer.ProducerConfig;
 import org.apache.kafka.common.serialization.StringDeserializer;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.kafka.annotation.EnableKafka;
@@ -17,12 +19,13 @@ import org.springframework.kafka.support.serializer.JsonDeserializer;
 import com.invisiblealpha.common.events.UserRegisteredEventV1;
 
 
+@RefreshScope
 @Configuration
 @EnableKafka
 public class ReceiverConfig {
 
-    // @Value("${kafka.bootstrap-servers}")
-    private String bootstrapServers = "localhost:29160,localhost:29161,localhost:29162";
+	@Value("${kafka.bootstrap-servers:localhost:29160,localhost:29161,localhost:29162}")	    
+    private String bootstrapServers;//= "localhost:29160,localhost:29161,localhost:29162";
     
     private static final String GROUP_ID = "1";
 
