@@ -23,7 +23,7 @@ class Home extends Component {
                 <span className="icon-bar"></span>
                 <span className="icon-bar"></span>
               </button>
-              <a className="navbar-brand" href="#">Version 2.0</a>
+              <a className="navbar-brand" href="#">Version 0.0.1</a>
             </div>
             <div id="navbar" className="navbar-collapse collapse">
               <form className="navbar-form navbar-right">
@@ -41,7 +41,7 @@ class Home extends Component {
 
         <div className="jumbotron">
           <div className="container">
-            <h1>Hello, world! version 2.0 </h1>
+            <h1>Hello, world! version</h1>
             <p>This is a template for a simple marketing or informational website. It
               includes a large callout called a jumbotron and three supporting pieces of
               content. Use it as a starting point to create something more unique.</p>
