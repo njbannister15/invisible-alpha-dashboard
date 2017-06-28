@@ -1,11 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Application from './components/Application';
 import Login from './routes/auth/containers/Login'
 import registerServiceWorker from './registerServiceWorker';
 import './assets/css/index.css'
 import {BrowserRouter as Router, Route, Link} from 'react-router-dom'
 
+// Setup main page routed here.
 ReactDOM.render((
   <Router>
     <div>      

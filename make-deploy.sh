@@ -1,4 +1,5 @@
 #!/bin/bash
+
 npm run build
 rm -rf deploy deploy.tar deploy.tar.gz
 mkdir deploy

@@ -2,6 +2,7 @@ import React from 'react';
 import logo from '../../../assets/img/logo.svg';
 import '../../../assets/css/Login.css';
 import UiValidate from '../../../components/forms/validation/UiValidate'
+import { Link } from 'react-router-dom'
 
 export default class Login extends React.Component {
   render() {
@@ -16,7 +17,9 @@ export default class Login extends React.Component {
           </div>
 
           <span id="extr-page-header-space">
-            <span className="hidden-mobile hiddex-xs">Need an account?</span>&nbsp;<a href="#/register" className="btn btn-danger">Create account</a>
+            <span className="hidden-mobile hiddex-xs">Need an account?</span>&nbsp;
+            <Link to="/register"  className="btn btn-danger">Create account</Link>
+            {/*<a href="#/register" className="btn btn-danger">Create account</a>*/}
           </span>
 
         </header>
