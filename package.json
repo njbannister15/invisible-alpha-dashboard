@@ -24,8 +24,8 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "build-docker": "docker build --tag ctl-dashboard .",
-    "start-docker": "docker run --name ctl-dashboard -p 8181:80 -d ctl-dashboard",
+    "build-docker": "docker build --no-cache=true  -t invisible-alpha/dashboard .",
+    "start-docker": "docker run --rm --name invisible-alpha -p 8181:80 -d invisible-alpha/dashboard",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
   },
