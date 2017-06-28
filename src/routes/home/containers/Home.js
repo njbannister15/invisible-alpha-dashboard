@@ -23,7 +23,7 @@ class Home extends Component {
                 <span className="icon-bar"></span>
                 <span className="icon-bar"></span>
               </button>
-              <a className="navbar-brand" href="#">Project name</a>
+              <a className="navbar-brand" href="#">Version 2.0</a>
             </div>
             <div id="navbar" className="navbar-collapse collapse">
               <form className="navbar-form navbar-right">
