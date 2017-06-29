@@ -1,10 +1,6 @@
 import {combineReducers} from 'redux'
 
 /**
- * Note that each of these reducers is managing its own part of the global state.
- */
-
-/**
  *
  * @param {*} state
  * @param {*} action
