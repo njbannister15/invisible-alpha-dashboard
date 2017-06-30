@@ -4,7 +4,7 @@ import registerServiceWorker from './registerServiceWorker';
 import Root from './routes/Root';
 import configureStore from './store/configureStore';
 
-import {authenticate} from './components/auth/actions'
+import {authenticate} from './routes/auth/actions'
 
 const store = configureStore();
 

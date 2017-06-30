@@ -1,8 +1,8 @@
 import React from 'react';
 
 import { Route } from 'react-router-dom'
-import Login from './containers/Login';
-import Register from './containers/Register';
+import Login from './presentation/Login';
+import Register from './presentation/Register';
 
 const routes = (
   <div>
