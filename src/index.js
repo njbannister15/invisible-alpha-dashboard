@@ -1,3 +1,6 @@
+// Do this once before any other code in your app
+import 'babel-polyfill'
+
 window.jQuery = window.$ = require("jquery");
 //window.moment = require('moment');
 window._ = require('lodash');
@@ -6,7 +9,6 @@ window._ = require('lodash');
 //import 'core-js/es6/object'
 //import 'jquery-ui-npm/jquery-ui.min.js'
 //import 'imports-loader?jQuery=jquery!jquery-color/jquery.color.js'
-
 require("bootstrap");
 
 /** Notes: require.ensure is specific to webpack

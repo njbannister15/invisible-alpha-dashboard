@@ -4,7 +4,11 @@ import registerServiceWorker from './registerServiceWorker';
 import Root from './routes/Root';
 import configureStore from './store/configureStore';
 
+import {authenticate} from './components/auth/actions'
+
 const store = configureStore();
+
+store.dispatch(authenticate('nbannister385@gmail.com', 'password'));
 
 ReactDOM.render((
   <Root store={store}/>
