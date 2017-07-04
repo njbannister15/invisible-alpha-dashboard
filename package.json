@@ -49,9 +49,20 @@
   "proxy": "http://localhost:3001",
   "eslintConfig": {
     "env": {
-      "browser": true,
-      "node": true,
-      "jquery": true
-    }
-  }
+      "es6": true
+    },
+    "parserOptions": {
+      "ecmaFeatures": {
+        "experimentalObjectRestSpread": true,
+        "jsx": true
+      },
+      "sourceType": "module"
+    },
+    "plugins": [
+      "react"
+    ]
+  },
+  "eslintIgnore": [
+    "src/index.js"
+  ]
 }
