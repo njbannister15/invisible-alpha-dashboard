@@ -1,6 +1,6 @@
 import React from 'react';
 import logo from '../../../assets/img/logo.svg';
-import '../../../assets/css/Login.css';
+//import '../../../assets/css/Login.css';
 import UiValidate from '../../../components/forms/validation/UiValidate'
 import { Link } from 'react-router-dom'
 import PropTypes from 'prop-types';
@@ -31,10 +31,9 @@ export default class Login extends React.Component {
       <div id="extr-page">
         <header id="header" className="animated fadeInDown">
 
+
           <div id="logo-group">
-            <span id="logo">
-              <img src={logo} className="App-logo" alt="CtlLogo"/>
-            </span>
+            <span id="logo"> <img src="assets/img/logo.png" alt="SmartAdmin"/> </span>
           </div>
 
           <span id="extr-page-header-space">

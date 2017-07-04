@@ -3,7 +3,7 @@ import logo from '../../../assets/img/logo.svg';
 import TermsAndConditions from './TermsAndConditions';
 import {Link} from 'react-router-dom';
 
-import '../../../assets/css/Login.css';
+//import '../../../assets/css/Login.css';
 
 export default class Register extends React.Component {
   render() {
@@ -12,9 +12,7 @@ export default class Register extends React.Component {
         <header id="header" className="animated fadeInDown">
 
           <div id="logo-group">
-            <span id="logo">
-              <img src={logo} className="App-logo" alt="CtlLogo"/>
-            </span>
+            <span id="logo"> <img src="assets/img/logo.png" alt="SmartAdmin"/> </span>
           </div>
 
           <span id="extr-page-header-space">
