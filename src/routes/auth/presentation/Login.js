@@ -3,8 +3,29 @@ import logo from '../../../assets/img/logo.svg';
 import '../../../assets/css/Login.css';
 import UiValidate from '../../../components/forms/validation/UiValidate'
 import { Link } from 'react-router-dom'
+import PropTypes from 'prop-types';
 
 export default class Login extends React.Component {
+
+  constructor(props) {
+    super(props);
+    this.state = {email:'', password:''};
+
+    this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+  }
+
+  handleChange(event) {
+    let newState = {};
+    newState[event.target.name] = event.target.value;
+    this.setState(newState);
+  }
+
+  handleSubmit(event) {   
+    event.preventDefault();
+    this.props.handleSubmit(this.state.email, this.state.password);
+  }
+
   render() {
     return (
       <div id="extr-page">
@@ -30,7 +51,7 @@ export default class Login extends React.Component {
                 className="col-xs-12 col-sm-12 col-md-6 col-lg-4 col-md-offset-3 col-lg-offset-4">
                 <div className="well no-padding">
                   <UiValidate>
-                    <form action="#/dashboard" id="login-form" className="smart-form client-form">
+                    <form onSubmit={this.handleSubmit} id="login-form" className="smart-form client-form">
                       <header>
                         Sign In
                       </header>
@@ -46,7 +67,10 @@ export default class Login extends React.Component {
                               data-required=""
                               data-email=""
                               data-message-required="Please enter your email address"
-                              data-message-email="Please enter a VALID email address"/>
+                              data-message-email="Please enter a VALID email address"
+                              value={this.state.email} 
+                              onChange={this.handleChange}
+                              />
                             <b className="tooltip tooltip-top-right"><i className="fa fa-user txt-color-teal"/>
                               Please enter email address/username</b>
                           </label>
@@ -62,7 +86,10 @@ export default class Login extends React.Component {
                               data-required=""
                               data-minlength="3"
                               data-maxnlength="20"
-                              data-message="Please enter your email password"/>
+                              data-message="Please enter your email password"
+                              value={this.state.password} 
+                              onChange={this.handleChange}
+                              />
                             <b className="tooltip tooltip-top-right"><i className="fa fa-lock txt-color-teal"/>
                               Enter your password</b>
                           </label>
@@ -74,7 +101,7 @@ export default class Login extends React.Component {
                         <section>
                           <label className="checkbox">
                             <input type="checkbox" name="remember" defaultChecked={true}/>
-                            <i/>Stay signed in</label>
+                            <i/>Remember Me</label>
                         </section>
                       </fieldset>
                       <footer>
@@ -107,3 +134,7 @@ export default class Login extends React.Component {
     );
   }
 }
+
+Login.propTypes = {
+  handleSubmit: PropTypes.func.isRequired
+};

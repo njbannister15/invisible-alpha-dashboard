@@ -1,4 +1,5 @@
 import fetch from 'isomorphic-fetch'
+import jwt_decode from 'jwt-decode';
 
 export const LOGIN_REQUEST = 'LOGIN_REQUEST'
 export const LOGIN_SUCCESS = 'LOGIN_SUCCESS'
@@ -11,7 +12,13 @@ function requestLogin(email) {
 }
 
 function receiveLogin(user) {
-  return {type: LOGIN_SUCCESS, isFetching: false, isAuthenticated: true, id_token: user.id_token}
+  var decoded = jwt_decode( user.id_token);
+  return {
+    type: LOGIN_SUCCESS, 
+    isFetching: false, 
+    isAuthenticated: true, 
+    info: decoded.data,
+    id_token: user.id_token}
 }
 
 function loginError(message) {
@@ -21,9 +28,7 @@ function loginError(message) {
 export const authenticate = (email, password) => {
 
   return (dispatch) => {
-
     dispatch(requestLogin(email))
-
     let opts = {
       method: 'POST',
       headers: {

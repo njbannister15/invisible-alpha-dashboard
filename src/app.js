@@ -8,8 +8,6 @@ import {authenticate} from './routes/auth/actions'
 
 const store = configureStore();
 
-store.dispatch(authenticate('nbannister385@gmail.com', 'password'));
-
 ReactDOM.render((
   <Root store={store}/>
 ), document.getElementById('root'));

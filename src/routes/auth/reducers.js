@@ -1,7 +1,6 @@
 import {combineReducers} from 'redux'
 import {LOGIN_REQUEST, LOGIN_SUCCESS, LOGIN_FAILURE} from './actions'
 import {Map} from 'immutable';
-//import {jwt} from 'jsonwebtoken';
 
 const defaultState = Map({
   isFetching: false,

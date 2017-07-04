@@ -5,7 +5,7 @@ import TodoApp from './containers/TodoApp';
 
 const routes = (
   <div>
-    <Route exact= {true} path='/todo' component={TodoApp}/>
+    <Route path='/todo' component={TodoApp}/>
   </div>
 );
 
