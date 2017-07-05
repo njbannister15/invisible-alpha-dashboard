@@ -28,7 +28,7 @@ class UserAuthentication extends React.Component{
 }
 
 function mapStateToProps(state) {
-
+  return state;
 }
 
 export default connect(mapStateToProps)(UserAuthentication);

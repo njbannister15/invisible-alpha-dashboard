@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import {Link} from 'react-router-dom'
+import {NavLink} from 'react-router-dom'
 //import Msg from '../../i18n/Msg'
 
 import SmartMenuList from './NavMenuList'
@@ -49,11 +49,11 @@ export default class SmartMenuItem extends React.Component {
       : '';
 
     const link = item.route
-      ? <Link to={item.route} title={item.title} activeClassName="active">
+      ? <NavLink to={item.route} title={item.title} activeClassName="active">
           {icon}
           {title}
           {badge}
-        </Link>
+        </NavLink>
       : <a href={item.href || '#'} onClick={this._handleClick} title={item.title}>
         {icon}
         {title}

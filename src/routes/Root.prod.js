@@ -8,13 +8,13 @@ export default class Root extends Component {
     return (
       <Provider store={store}>
         
-          <Router>
-            <div>
-              {require('./home').default}
-              {require('./auth').default}
-              {require('./todo').default}
-            </div>
-          </Router>
+          <BrowserRouter>
+            <Switch>    
+                <Route  path='/login' component={Login}/>
+                <Route  path='/register' component={Register}/>     
+                <Route  path='/home' component={Home}/>     
+            </Switch>
+          </BrowserRouter>
       </Provider>
     );
   }

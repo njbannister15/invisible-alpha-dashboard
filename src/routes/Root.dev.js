@@ -6,6 +6,7 @@ import DevTools from '../components/misc/DevTools';
 
 import Login from './auth/container/UserAuthentication';
 import Register from './auth/presentation/Register';
+import PrivateRoute from './auth/container/PrivateRoute'
 import Home from './home/presentation/Home'
 
 
@@ -18,8 +19,8 @@ export default class Root extends Component {
           <BrowserRouter>
             <Switch>    
                 <Route  path='/login' component={Login}/>
-                <Route  path='/register' component={Register}/>     
-                <Route  path='/home' component={Home}/>     
+                <Route  path='/register' component={Register}/>  
+                <PrivateRoute  path='/home' component={Home}/>     
             </Switch>
           </BrowserRouter>
           <DevTools/>
