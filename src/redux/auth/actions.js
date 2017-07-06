@@ -4,9 +4,7 @@ import jwt_decode from 'jwt-decode';
 export const LOGIN_REQUEST = 'LOGIN_REQUEST'
 export const LOGIN_SUCCESS = 'LOGIN_SUCCESS'
 export const LOGIN_FAILURE = 'LOGIN_FAILURE'
-
 export const LOGOUT = 'LOGOUT'
-
 export const RECEIVE_TOKEN = 'RECEIVE_TOKEN'
 
 function requestLogin(email) {
@@ -19,11 +17,9 @@ function receiveLogin(user) {
     type: LOGIN_SUCCESS, 
     isFetching: false, 
     isAuthenticated: true, 
-    info: decoded.data,
-    // email: decoded.data.email,
-    // firstName: decoded.data.firstName,
-    // lastName: decoded.data.lastName,
-    id_token: user.id_token
+    id_token: user.id_token,
+    access_token: user.access_token,
+    info: decoded.data    
   }
 }
 

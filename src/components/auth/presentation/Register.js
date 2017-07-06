@@ -12,7 +12,7 @@ export default class Register extends React.Component {
         <header id="header" className="animated fadeInDown">
 
           <div id="logo-group">
-            <span id="logo"> <img src="assets/img/logo.png" alt="SmartAdmin"/> </span>
+            <span id="logo"> <img src="http://via.placeholder.com/250x60" alt="SmartAdmin"/> </span>
           </div>
 
           <span id="extr-page-header-space">
