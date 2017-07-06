@@ -2,7 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 import Login from '../presentation/Login'
 
-import {authenticate} from '../actions'
+import {authenticate} from '../../../redux/auth/actions' 
 
 class UserAuthentication extends React.Component{
 

@@ -3,7 +3,7 @@ import {persistState} from 'redux-devtools';
 import thunkMiddleware from 'redux-thunk'
 import loggerMiddleware from 'redux-logger'
 
-import rootReducer from '../reducers'
+import rootReducer from '../redux'
 import DevTools from '../components/misc/DevTools'
 
 const enhancer = compose(
@@ -25,20 +25,8 @@ export default function configureStore(initialState) {
   if (module.hot) {
     module
       .hot
-      .accept('../reducers', () => store.replaceReducer(require('../reducers').default));
+      .accept('../redux', () => store.replaceReducer(require('../redux').default));
   }
 
   return store;
 }
-
-
-/*
-export default function configureStore(initialState) {
-  return createStore(
-    rootReducer, 
-    initialState,   
-    applyMiddleware(
-      thunkMiddleware
-  ));
-}
-*/

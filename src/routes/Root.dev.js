@@ -4,9 +4,9 @@ import {Switch, Route} from 'react-router'
 import {BrowserRouter} from 'react-router-dom'
 import DevTools from '../components/misc/DevTools';
 
-import Login from './auth/container/UserAuthentication';
-import Register from './auth/presentation/Register';
-import PrivateRoute from './auth/container/PrivateRoute'
+import Login from '../components/auth/container/UserAuthentication';
+import Register from '../components//auth/presentation/Register';
+import PrivateRoute from '../components/auth/container/PrivateRoute'
 import Home from './home/presentation/Home'
 
 
