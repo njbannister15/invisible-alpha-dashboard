@@ -1,9 +1,7 @@
 import React, {Component} from 'react';
 import logo from '../../../assets/img/logo.svg';
 
-//import '../assets/css/Application.css'
-
-class Home extends Component {
+class HelloWorld extends Component {
   render() {
     return (
       <div className="App">
@@ -25,24 +23,14 @@ class Home extends Component {
               </button>
               <a className="navbar-brand" href="#">Version 0.0.1</a>
             </div>
-            <div id="navbar" className="navbar-collapse collapse">
-              <form className="navbar-form navbar-right">
-                <div className="form-group">
-                  <input type="text" placeholder="Email" className="form-control"/>
-                </div>
-                <div className="form-group">
-                  <input type="password" placeholder="Password" className="form-control"/>
-                </div>
-                <button type="submit" className="btn btn-success">Sign in</button>
-              </form>
-            </div>
+
           </div>
         </nav>
 
         <div className="jumbotron">
           <div className="container">
-            <h1>Hello, world! version</h1>
-            <p>This is a template for a simple marketing or informational website. It
+            <h1>Placeholder</h1>
+            <p>This is a template for a simple marketing or informational page. It
               includes a large callout called a jumbotron and three supporting pieces of
               content. Use it as a starting point to create something more unique.</p>
             <p>
@@ -98,4 +86,4 @@ class Home extends Component {
   }
 }
 
-export default Home;
+export default HelloWorld;
