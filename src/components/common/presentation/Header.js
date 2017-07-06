@@ -8,12 +8,24 @@ import React from 'react'
 import ToggleMenu from './ToggleMenu'
 //import SpeechButton from '../voice-control/components/SpeechButton'
 import SearchMobile from './SearchMobile'
-
+import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom'
 // import Activities from '../activities/components/Activities' import
 // LanguageSelector from '../i18n/LanguageSelector' import RecentProjects from
 // './RecentProjects'
 
 export default class Header extends React.Component {
+
+  constructor(props){
+    super(props);
+    this.handleLogout = this.handleLogout.bind(this);
+  }
+
+  handleLogout(){
+    //console.log("logging out");
+    this.props.handleLogout();
+  }
+
   render() {
     return <header id="header">
       <div id="logo-group">
@@ -68,7 +80,7 @@ export default class Header extends React.Component {
                   <u>S</u>creen</a>
               </li>
               <li className="divider"/>
-              <li>
+              <li>                
                 <a
                   href="#/login"
                   className="padding-10 padding-top-5 padding-bottom-5"
@@ -84,10 +96,15 @@ export default class Header extends React.Component {
         {/* logout button */}
         <div id="logout" className="btn-header transparent pull-right">
           <span>
+            <Link onClick={this.handleLogout} to="/login" title="Sign Out" data-logout-msg="You can improve your security further after logging out by closing this opened browser">
+              <i className="fa fa-sign-out"/>
+            </Link>
+            {/*
             <a
               href="#/login"
               title="Sign Out"
               data-logout-msg="You can improve your security further after logging out by closing this opened browser"><i className="fa fa-sign-out"/></a>
+              */}
           </span>
         </div>
 
@@ -140,3 +157,8 @@ export default class Header extends React.Component {
     </header>
   }
 }
+
+
+Header.propTypes = {
+  handleLogout: PropTypes.func.isRequired
+};

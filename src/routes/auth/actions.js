@@ -5,6 +5,8 @@ export const LOGIN_REQUEST = 'LOGIN_REQUEST'
 export const LOGIN_SUCCESS = 'LOGIN_SUCCESS'
 export const LOGIN_FAILURE = 'LOGIN_FAILURE'
 
+export const LOGOUT = 'LOGOUT'
+
 export const RECEIVE_TOKEN = 'RECEIVE_TOKEN'
 
 function requestLogin(email) {
@@ -54,5 +56,13 @@ export const authenticate = (email, password) => {
       console.log('An error occured.', error)
       dispatch(loginError(error.message));
     });
+  }
+}
+
+export const logout = () => {
+  localStorage.removeItem('id_token');
+  localStorage.removeItem('access_token');
+  return {
+    type: LOGOUT 
   }
 }

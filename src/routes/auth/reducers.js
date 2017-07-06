@@ -1,5 +1,5 @@
 import {combineReducers} from 'redux'
-import {LOGIN_REQUEST, LOGIN_SUCCESS, LOGIN_FAILURE} from './actions'
+import {LOGIN_REQUEST, LOGIN_SUCCESS, LOGIN_FAILURE, LOGOUT} from './actions'
 import {Map} from 'immutable';
 
 const defaultState = Map({
@@ -22,6 +22,11 @@ function authorization(state = defaultState, action) {
         isFetching: action.isFetching, 
         isAuthenticated: action.isAuthenticated, 
         message: action.message});
+    case LOGOUT:
+      return Map({
+        isFetching: false,
+        isAuthenticated: false
+      });
     default:
       return state
   }

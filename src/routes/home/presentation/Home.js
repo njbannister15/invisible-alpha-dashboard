@@ -6,7 +6,7 @@ import React from 'react'
 
 import WidgetGrid from '../../../components/widgets/WidgetGrid'
 import JarvisWidget from '../../../components/widgets/JarvisWidget'
-import Layout from '../../../components/common/Layout'
+import Layout from '../../../components/common/presentation/Layout'
 
 export default class Home extends React.Component {
   render() {
