@@ -29,10 +29,9 @@ class Login extends React.Component {
     return (
       <div id="extr-page">
         <header id="header" className="animated fadeInDown">
-
-
+          
           <div id="logo-group">
-            <span id="logo"> <img src="assets/img/logo.png" alt="SmartAdmin"/> </span>
+            <span id="logo"> <img src="http://via.placeholder.com/250x60" alt="SmartAdmin"/> </span>
           </div>
 
           <span id="extr-page-header-space">
@@ -65,8 +64,7 @@ class Login extends React.Component {
                               data-required=""
                               data-email=""
                               data-message-required="Please enter your email address"
-                              data-message-email="Please enter a VALID email address"
-                             
+                              data-message-email="Please enter a VALID email address"                             
                               value={this.state.email} 
                               onChange={this.handleChange}
                               

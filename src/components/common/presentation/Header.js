@@ -30,7 +30,7 @@ export default class Header extends React.Component {
     return <header id="header">
       <div id="logo-group">
         <span id="logo">
-          <img src="assets/img/logo.png" // place your logo here
+          <img src="http://via.placeholder.com/250x60?text=250x60" // place your logo here
             alt="SmartAdmin"/>
         </span>
         {/* Note: The activity badge color changes when clicked and resets the number to 0

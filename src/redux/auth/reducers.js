@@ -8,17 +8,14 @@ const defaultState = Map({
   id_token: localStorage.getItem('id_token')
 });
 
-function authorization(state = defaultState, action) {
+function authorization(state = new Map(), action) {
   switch (action.type) {    
     case LOGIN_SUCCESS: 
       return Map({
         isFetching: action.isFetching, 
         isAuthenticated: action.isAuthenticated, 
         id_token: action.id_token,
-        info: action.info
-        //email:action.email,
-        //firstName: action.firstName,
-        //lastName: action.lastName      
+        info: action.info 
     });
     case LOGIN_FAILURE:
       return Map({
