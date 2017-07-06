@@ -19,10 +19,14 @@ export default class Root extends Component {
         <div>
           <BrowserRouter>
             <div>
-                <Route exact path="/" component={HelloWorld}/>    
+                <Route exact path="/" component={HelloWorld}/>
                 <Route  path='/login' component={Login}/>
-                <Route  path='/register' component={Register}/>  
-                <PrivateRoute path='/home' component={Home}/>     
+                <Route  path='/register' component={Register}/>
+                <PrivateRoute path='/home' component={Home}/>
+                { 
+                  // alternative way to do some routes
+                  require('./todo').default
+                }
             </div>
           </BrowserRouter>
           <DevTools/>

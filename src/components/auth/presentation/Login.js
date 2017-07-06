@@ -2,17 +2,18 @@ import React from 'react';
 import logo from '../../../assets/img/logo.svg';
 //import '../../../assets/css/Login.css';
 import UiValidate from '../../../components/forms/validation/UiValidate'
-import { Link } from 'react-router-dom'
+import { Link, Redirect, withRouter} from 'react-router-dom'
 import PropTypes from 'prop-types';
 
-export default class Login extends React.Component {
+class Login extends React.Component {
 
   constructor(props) {
     super(props);
-    this.state = {email:'', password:''};
+    this.state = {email:'', password:'',  redirectToReferrer: false};
 
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.render = this.render.bind(this);
   }
 
   handleChange(event) {
@@ -24,9 +25,20 @@ export default class Login extends React.Component {
   handleSubmit(event) {   
     event.preventDefault();
     this.props.handleSubmit(this.state.email, this.state.password);
+    this.setState({ redirectToReferrer: true })
   }
 
   render() {
+
+    const { from } = this.props.location.state || { from: { pathname: '/home' } }   
+    const { redirectToReferrer } = this.state
+    
+    if (redirectToReferrer) {
+      return (
+        <Redirect to={from}/>
+      )
+    }    
+
     return (
       <div id="extr-page">
         <header id="header" className="animated fadeInDown">
@@ -133,6 +145,9 @@ export default class Login extends React.Component {
     );
   }
 }
+
+
+export default withRouter(Login)
 
 Login.propTypes = {
   handleSubmit: PropTypes.func.isRequired
