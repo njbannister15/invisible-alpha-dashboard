@@ -18,7 +18,7 @@ export default class Root extends Component {
       <Provider store={store}>
         <div>
           <BrowserRouter>
-            <div>
+            <Switch> 
                 <Route exact path="/" component={HelloWorld}/>
                 <Route  path='/login' component={Login}/>
                 <Route  path='/register' component={Register}/>
@@ -27,7 +27,7 @@ export default class Root extends Component {
                   // alternative way to do some routes
                   require('./todo').default
                 }
-            </div>
+            </Switch> 
           </BrowserRouter>
           <DevTools/>
         </div>

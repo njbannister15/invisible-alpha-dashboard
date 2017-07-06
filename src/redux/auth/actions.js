@@ -14,13 +14,17 @@ function requestLogin(email) {
 }
 
 function receiveLogin(user) {
-  var decoded = jwt_decode( user.id_token);
+  //var decoded = jwt_decode( user.id_token);
   return {
     type: LOGIN_SUCCESS, 
     isFetching: false, 
     isAuthenticated: true, 
-    info: decoded.data,
-    id_token: user.id_token}
+    //info: decoded.data,
+    // email: decoded.data.email,
+    // firstName: decoded.data.firstName,
+    // lastName: decoded.data.lastName,
+    id_token: user.id_token
+  }
 }
 
 function loginError(message) {

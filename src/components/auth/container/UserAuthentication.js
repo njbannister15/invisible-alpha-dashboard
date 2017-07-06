@@ -2,7 +2,8 @@ import React from 'react'
 import { connect } from 'react-redux'
 import Login from '../presentation/Login'
 
-import {authenticate} from '../../../redux/auth/actions' 
+import { authenticate} from '../../../redux/auth/actions' 
+import { Redirect } from 'react-router-dom'
 
 class UserAuthentication extends React.Component{
 
@@ -16,6 +17,12 @@ class UserAuthentication extends React.Component{
   }
 
   render(){
+    if(this.props.auth.get('isAuthenticated')){
+     return (
+       <Redirect from="/login" to="/home" push />
+      )
+    }
+
     return (
       <div>
         <Login
@@ -28,7 +35,9 @@ class UserAuthentication extends React.Component{
 }
 
 function mapStateToProps(state) {
-  return state;
+  return {
+    auth: state.user.auth
+  }
 }
 
 export default connect(mapStateToProps)(UserAuthentication);

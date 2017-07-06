@@ -9,11 +9,9 @@ class Login extends React.Component {
 
   constructor(props) {
     super(props);
-    this.state = {email:'', password:'',  redirectToReferrer: false};
-
+    this.state = {email:'', password:''};
     this.handleChange = this.handleChange.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
-    this.render = this.render.bind(this);
+    this.submit = this.submit.bind(this);
   }
 
   handleChange(event) {
@@ -22,23 +20,12 @@ class Login extends React.Component {
     this.setState(newState);
   }
 
-  handleSubmit(event) {   
+  submit(event) {       
     event.preventDefault();
     this.props.handleSubmit(this.state.email, this.state.password);
-    this.setState({ redirectToReferrer: true })
   }
 
   render() {
-
-    const { from } = this.props.location.state || { from: { pathname: '/home' } }   
-    const { redirectToReferrer } = this.state
-    
-    if (redirectToReferrer) {
-      return (
-        <Redirect to={from}/>
-      )
-    }    
-
     return (
       <div id="extr-page">
         <header id="header" className="animated fadeInDown">
@@ -62,7 +49,7 @@ class Login extends React.Component {
                 className="col-xs-12 col-sm-12 col-md-6 col-lg-4 col-md-offset-3 col-lg-offset-4">
                 <div className="well no-padding">
                   <UiValidate>
-                    <form onSubmit={this.handleSubmit} id="login-form" className="smart-form client-form">
+                    <form onSubmit={this.submit} id="login-form" className="smart-form client-form">
                       <header>
                         Sign In
                       </header>
@@ -79,8 +66,10 @@ class Login extends React.Component {
                               data-email=""
                               data-message-required="Please enter your email address"
                               data-message-email="Please enter a VALID email address"
+                             
                               value={this.state.email} 
                               onChange={this.handleChange}
+                              
                               />
                             <b className="tooltip tooltip-top-right"><i className="fa fa-user txt-color-teal"/>
                               Please enter email address/username</b>
