@@ -47,6 +47,7 @@ function authorization(state = defaultState, action) {
       return state
   }
 }
+
 const todoReducer = combineReducers({auth: authorization});
 
 export default todoReducer;
