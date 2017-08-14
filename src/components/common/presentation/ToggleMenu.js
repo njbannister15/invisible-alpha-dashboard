@@ -1,28 +1,39 @@
 import React from 'react'
-import $ from 'jquery'
 
-export default class ToggleMenu  extends React.Component{
-  toggleMenu(e) {
-    const $body = $('body');
-    const $html = $('html');
+export default class ToggleMenu extends React.Component {
 
-    if (!$body.hasClass("menu-on-top")){
-      $html.toggleClass("hidden-menu-mobile-lock");
-      $body.toggleClass("hidden-menu");
-      $body.removeClass("minified");
-    } else if ( $body.hasClass("menu-on-top") && $body.hasClass("mobile-view-activated") ) {
-      $html.toggleClass("hidden-menu-mobile-lock");
-      $body.toggleClass("hidden-menu");
-      $body.removeClass("minified");
+  constructor(props) {
+    super(props);
+    this.state = {
+      menuOnTop: false,
+      minified: false,
+      hiddenMenu: false
     }
+    this.toggleMenu = this.toggleMenu.bind(this);
+  }
+
+  componentDidUpdate() {
+    document.body.classList.remove('minified')
+    document.body.classList.toggle('hidden-menu', this.state.hiddenMenu);
+  }
+
+  toggleMenu(e) {
+
+    this.setState((prev) => {
+      return {
+        menuOnTop: !prev.menuOnTop,
+        hiddenMenu: !prev.hiddenMenu,
+      }
+    })
+
     e.preventDefault();
   }
   render() {
     return (
       <div id="hide-menu" className={this.props.className}>
-                <span>
-                    <a onClick={this.toggleMenu} title="Collapse Menu"><i className="fa fa-reorder"/></a>
-                </span>
+        <span>
+          <a onClick={this.toggleMenu} title="Collapse Menu"><i className="fa fa-reorder" /></a>
+        </span>
       </div>
 
     )

@@ -1,13 +1,7 @@
 import React from 'react'
-import {Route, Switch} from 'react-router-dom'
-//import TodoApp from '../../routes/todo/containers/TodoApp'
-import Header from '../container/HeaderContainer'
+import Header from '../containers/HeaderContainer'
 import Navigation from '../../navigation/components/Navigation'
-// import Ribbon from '../ribbon/Ribbon' 
-import Footer from './Footer'
-
-//  import Shortcut from '../navigation/components/Shortcut' import LayoutSwitcher from
-// '../layout/components/LayoutSwitcher'
+import Ribbon from '../../ribbon/presentation/Ribbon'
 
 export default class Layout extends React.Component {
   render() {
@@ -18,15 +12,12 @@ export default class Layout extends React.Component {
         
         <Navigation/>
         <div id="main" role="main">
-          {/*
-          <LayoutSwitcher />
           <Ribbon />
-*/}
           {this.props.children}
         </div>
-        
-        <Footer />
+                
         {/*
+        <Footer />
         <Shortcut />
         */}
 

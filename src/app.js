@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import registerServiceWorker from './registerServiceWorker';
-import Root from './routes/Root';
+import Root from './root/Root';
 import configureStore from './store/configureStore';
 
 const store = configureStore();

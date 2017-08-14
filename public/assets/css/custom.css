@@ -1,0 +1,13 @@
+.custom-icon-s3{
+    content: url("/assets/img/icons/Storage_AmazonS3_bucket.svg");
+    width: 19px;
+    /* you can use % */
+    height: auto;
+}
+
+.custom-icon-ec2{
+    content: url("/assets/img/icons/Compute_AmazonEC2.svg");
+    width: 19px;
+    /* you can use % */
+    height: auto;
+}

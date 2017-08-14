@@ -1,10 +1,26 @@
 {
   "items": [
     {
-        "title":"Home",
-        "route":"home",
-        "icon":"fa fa-lg fa-fw fa-home"
+      "title": "Amazon",
+      "route": "/dashboard/aws",
+      "icon": "fa fa-lg fa-fw fa-amazon",
+       "items": [
+        {
+          "icon": "fa custom-icon-s3",
+          "title": "S3",
+          "route": "/dashboard/aws/s3"
+        },
+        {
+          "icon": "fa custom-icon-ec2",
+          "title": "EC2",
+          "route": "/dashboard/aws/ec2"
+        }
+      ]
+    },
+    {
+      "title": "Finance",
+      "route": "/dashboard/finance",
+      "icon": "fa fa-lg fa-fw fa-money"
     }
-
   ]
 }

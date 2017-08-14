@@ -4,7 +4,7 @@ npm run build
 rm -rf deploy deploy.tar deploy.tar.gz
 mkdir deploy
 cp -r build deploy
-cp invisible-alpha.conf deploy
+cp ctl-nginx.conf deploy
 cp deploy.sh deploy
 tar -cvf deploy.tar deploy
 gzip deploy.tar

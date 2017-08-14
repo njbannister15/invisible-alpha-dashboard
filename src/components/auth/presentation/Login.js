@@ -93,14 +93,16 @@ class Login extends React.Component {
                           </label>
 
                           <div className="note">
-                            <a href="#/forgot">Forgot password?</a>
+                            <a>Forgot password?</a>
                           </div>
                         </section>
+                        {/*}
                         <section>
                           <label className="checkbox">
                             <input type="checkbox" name="remember" defaultChecked={true}/>
                             <i/>Remember Me</label>
                         </section>
+                        */}
                       </fieldset>
                       <footer>
                         <button type="submit" className="btn btn-primary">

@@ -1,9 +1,18 @@
-import {createStore} from 'redux';
-import rootReducer from '../redux'
+import {createStore, compose, applyMiddleware} from 'redux';
+import {persistState} from 'redux-devtools';
 import thunkMiddleware from 'redux-thunk'
+import loggerMiddleware from 'redux-logger'
+
+import rootReducer from '../redux'
+
+const enhancer = compose(
+  applyMiddleware(
+    thunkMiddleware    
+  )
+);
 
 export default function configureStore(initialState) {
-  return createStore(rootReducer, initialState,   applyMiddleware(
-      thunkMiddleware
-  ));
+  const store = createStore(rootReducer, initialState, enhancer);
+
+  return store;
 }
