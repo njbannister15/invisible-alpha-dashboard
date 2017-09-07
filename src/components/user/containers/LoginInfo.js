@@ -8,7 +8,6 @@ class LoginInfo extends React.Component {
 
   render() {
     return (
-
       <div className="login-info">
         <span>
           <a>

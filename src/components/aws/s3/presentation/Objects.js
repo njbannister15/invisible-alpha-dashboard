@@ -17,7 +17,17 @@ export default class S3Objects extends React.Component {
 
   render() {
     return (
-      <BootstrapTable ref='table' data={this.props.objects} selectRow={selectRowProp}>
+      <BootstrapTable
+        ref='table'
+        options={this.props.isFetching
+        ? {
+          noDataText: 'Fetching... '
+        }
+        : {
+          noDataText: 'No Data'
+        }}
+        data={this.props.objects}
+        selectRow={selectRowProp}>
         <TableHeaderColumn
           dataFormat={this.nameFormatter}
           dataField='Key'

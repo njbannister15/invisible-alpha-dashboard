@@ -5,6 +5,8 @@ import DevTools from '../components/misc/DevTools';
 import Dashboard from './Dashboard';
 import {BrowserRouter} from 'react-router-dom'
 
+import Login from '../components/auth/containers/UserAuthentication'
+import CustomerRegistration from '../components/auth/containers/CustomerRegistration';
 
 let renderDevTools = false;
 if (process.env.NODE_ENV === 'production' || process.env.NODE_ENV === 'test') {
@@ -27,7 +29,10 @@ export default class Root extends Component {
         <div>
           <BrowserRouter >
             <div>
-              <Route path="/dashboard" component={Dashboard}/>
+              <Route exact path="/" component={Dashboard}/>
+              <Route path='/register' component={CustomerRegistration}/>
+              <Route path='/login' component={Login}/>
+
             </div>
           </BrowserRouter>
           {devTools}

@@ -1,18 +1,21 @@
 import React from 'react';
-import logo from '../../../assets/img/logo.svg';
 import TermsAndConditions from './TermsAndConditions';
-import {Link} from 'react-router-dom';
+import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
+import { Field, reduxForm } from 'redux-form';
+import { RenderField, required, email } from '../../common/presentation/formField'
 
-//import '../../../assets/css/Login.css';
+class Register extends React.Component {
 
-export default class Register extends React.Component {
   render() {
     return (
       <div id="extr-page">
         <header id="header" className="animated fadeInDown">
 
           <div id="logo-group">
-            <span id="logo"> <img src="http://via.placeholder.com/250x60" alt="SmartAdmin"/> </span>
+            <span id="logo">
+              <img src="http://via.placeholder.com/250x60" alt="SmartAdmin" />
+            </span>
           </div>
 
           <span id="extr-page-header-space">
@@ -27,141 +30,131 @@ export default class Register extends React.Component {
               <div
                 className="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-md-offset-3 col-lg-offset-3">
                 <div className="well no-padding">
-                  <form
-                    action="#/dashboard"
+                  {/*this.props.handleSubmit is a redux form function*/}
+                  <form                    
+                    noValidate="novalidate"
+                   
+                    onSubmit={this.props.handleSubmit}
                     id="smart-form-register"
                     className="smart-form client-form">
                     <header>
-                      Registration is FREE*
+                      User Registration
                     </header>
 
                     <fieldset>
                       <section>
                         <label className="input">
-                          <i className="icon-append fa fa-user"/>
-                          <input type="text" name="username" placeholder="Username"/>
-                          <b className="tooltip tooltip-bottom-right">Needed to enter the website</b>
+                          <Field
+                            icon="fa-envelope"
+                            tooltip="Needed to verify your account"
+                            type="text"
+                            name="email"
+                            placeholder="Email address"
+                            component={RenderField}
+                            validate={[required, email]}
+                          />
                         </label>
                       </section>
 
                       <section>
                         <label className="input">
-                          <i className="icon-append fa fa-building"/>
-                          <input type="text" name="company" placeholder="Invisible Alpha"/>
-                          <b className="tooltip tooltip-bottom-right">Needed to setup your organization</b>
+
+                          <Field
+                            icon="fa-lock"
+                            tooltip="Don't forget your password"
+                            type="password"
+                            name="password"
+                            placeholder="Password"
+                            id="password"
+                            component={RenderField}
+                            validate={[required]}
+                          />
+
                         </label>
                       </section>
 
                       <section>
                         <label className="input">
-                          <i className="icon-append fa fa-envelope"/>
-                          <input type="email" name="email" placeholder="Email address"/>
-                          <b className="tooltip tooltip-bottom-right">Needed to verify your account</b>
+
+                          <Field
+                            icon="fa-lock"
+                            tooltip="Don't forget your password"
+                            type="password" name="confirm" placeholder="Confirm password"
+                            component={RenderField}
+                            validate={[required]}
+                          />
+
                         </label>
                       </section>
 
-                      <section>
-                        <label className="input">
-                          <i className="icon-append fa fa-lock"/>
-                          <input type="password" name="password" placeholder="Password" id="password"/>
-                          <b className="tooltip tooltip-bottom-right">Don't forget your password</b>
-                        </label>
-                      </section>
-
-                      <section>
-                        <label className="input">
-                          <i className="icon-append fa fa-lock"/>
-                          <input type="password" name="passwordConfirm" placeholder="Confirm password"/>
-                          <b className="tooltip tooltip-bottom-right">Don't forget your password</b>
-                        </label>
-                      </section>
-                    </fieldset>
-
-                    <fieldset>
                       <div className="row">
                         <section className="col col-6">
                           <label className="input">
-                            <input type="text" name="firstname" placeholder="First name"/>
+                            <Field
+                              icon="fa-user"
+                              tooltip="Your first name"
+                              type="text" name="firstName" placeholder="First name"
+                              component={RenderField}
+                              validate={[required]}
+                            />
                           </label>
                         </section>
                         <section className="col col-6">
                           <label className="input">
-                            <input type="text" name="lastname" placeholder="Last name"/>
+                            <Field
+                              icon="fa-user"
+                              tooltip="Your last name"
+                              type="text" name="lastName" placeholder="Last name"
+                              component={RenderField}
+                              validate={[required]}
+                            />
                           </label>
                         </section>
                       </div>
 
                       <div className="row">
-                        <section className="col col-6">
-                          <label className="select">
-                            <select name="gender" defaultValue={"0"}>
-                              <option value="0" disabled={true}>Gender</option>
-                              <option value="1">Male</option>
-                              <option value="2">Female</option>
-                              <option value="3">Prefer not to answer</option>
-                            </select>
-                            <i/>
-                          </label>
-                        </section>
-                        <section className="col col-6">
-                          <label className="input">
-                            <i className="icon-append fa fa-calendar"/>
-                            <input
-                              type="text"
-                              name="request"
-                              placeholder="Request activation on"
-                              className="datepicker"
-                              data-dateformat="dd/mm/yy"/>
+                        <section className="col col-12">
+                          <label>
+                            <strong>This account will be the managing administator account and you will be
+                              able change settings at any time.</strong>
                           </label>
                         </section>
                       </div>
 
                       <section>
                         <label className="checkbox">
-                          <input type="checkbox" name="subscription" id="subscription"/>
-                          <i/>I want to receive news and special offers</label>
-                        <label className="checkbox">
-                          <input type="checkbox" name="terms" id="terms"/>
-                          <i/>I agree with the
+                          <input type="checkbox"
+                            name="terms" id="terms"
+                          />
+                          <i />I agree with the
                           <a href="#" data-toggle="modal" data-target="#myModal">
                             Terms and Conditions
                           </a>
                         </label>
                       </section>
                     </fieldset>
+
                     <footer>
-                      <a href="#/dashboard" className="btn btn-primary">
+
+                      <button type="submit" className="btn btn-primary">
                         Register
-                      </a>
+                        </button>
+
                     </footer>
 
                     <div className="message">
-                      <i className="fa fa-check"/>
+                      <i className="fa fa-check" />
                       <p>
                         Thank you for your registration!
                       </p>
                     </div>
                   </form>
+                  {/*</UiValidate>*/}
                 </div>
-                <h5 className="text-center">
-                  - Or sign in using -</h5>
-                <ul className="list-inline text-center">
-                  <li>
-                    <a href="#" className="btn btn-primary btn-circle"><i className="fa fa-facebook"/></a>
-                  </li>
-                  <li>
-                    <a href="#" className="btn btn-info btn-circle"><i className="fa fa-twitter"/></a>
-                  </li>
-                  <li>
-                    <a href="#" className="btn btn-warning btn-circle"><i className="fa fa-linkedin"/></a>
-                  </li>
-                </ul>
               </div>
             </div>
           </div>
         </div>
-
-        {/* Modal */}
         <div
           className="modal fade"
           id="myModal"
@@ -178,19 +171,19 @@ export default class Register extends React.Component {
                 <h4 className="modal-title" id="myModalLabel">Terms & Conditions</h4>
               </div>
               <div className="modal-body custom-scroll terms-body">
-                <TermsAndConditions/>.
+                <TermsAndConditions />
               </div>
               <div className="modal-footer">
                 <button type="button" className="btn btn-default" data-dismiss="modal">
                   Cancel
                 </button>
                 <button type="button" className="btn btn-primary" id="i-agree">
-                  <i className="fa fa-check"/>
+                  <i className="fa fa-check" />
                   I Agree
                 </button>
 
                 <button type="button" className="btn btn-danger pull-left" id="print">
-                  <i className="fa fa-print"/>
+                  <i className="fa fa-print" />
                   Print
                 </button>
               </div>
@@ -199,8 +192,16 @@ export default class Register extends React.Component {
           </div>
           {/* /.modal-dialog */}
         </div>
-        {/* /.modal */}
       </div>
     );
   }
 }
+
+
+export default reduxForm({
+  form: 'Register' // a unique identifier for this form
+})(Register)
+
+Register.propTypes = {
+  onSubmit: PropTypes.func.isRequired
+};

@@ -16,7 +16,7 @@ export default class S3Home extends React.Component {
           <article className="col-sm-10">
             <Switch>
               <Route exact path="/dashboard/aws/s3" component={S3Buckets}/>
-              <Route path="/dashboard/aws/s3/:name" component={S3Objects}/>
+              <Route path="/dashboard/aws/s3/:name" component={S3Objects}/>              
             </Switch>
           </article>
         </div>

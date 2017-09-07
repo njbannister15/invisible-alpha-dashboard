@@ -15,11 +15,6 @@ export default class Layout extends React.Component {
           <Ribbon />
           {this.props.children}
         </div>
-                
-        {/*
-        <Footer />
-        <Shortcut />
-        */}
 
       </div>
     )

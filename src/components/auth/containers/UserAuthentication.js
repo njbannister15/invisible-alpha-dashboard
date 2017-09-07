@@ -2,10 +2,11 @@ import React from 'react'
 import { connect } from 'react-redux'
 import Login from '../presentation/Login'
 
-import { authenticate} from '../../../redux/auth/actions' 
+import { authenticate } from '../../../redux/auth/actions'
 import { Redirect } from 'react-router-dom'
 
-class UserAuthentication extends React.Component{
+
+class UserAuthentication extends React.Component {
 
   constructor(props) {
     super(props)
@@ -16,17 +17,21 @@ class UserAuthentication extends React.Component{
     this.props.dispatch(authenticate(email, password));
   }
 
-  render(){
-    if(this.props.auth.get('isAuthenticated')){
-     return (
-       <Redirect from="/login" to="/home" push />
+  render() {
+
+    /*
+    if (this.props.auth.get('isAuthenticated')) {       
+      return (
+        <Redirect from="/login" to="/dashboard" push />
       )
     }
-
+    */
+    
     return (
       <div>
         <Login
           handleSubmit={this.handleSubmit}
+          //error={this.props.auth.get("message")}
         />
       </div>
     );
@@ -35,9 +40,7 @@ class UserAuthentication extends React.Component{
 }
 
 function mapStateToProps(state) {
-  return {
-    auth: state.user.auth
-  }
+  return state;
 }
 
 export default connect(mapStateToProps)(UserAuthentication);

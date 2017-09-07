@@ -11,12 +11,11 @@ const selectRowProp = {
 
 export default class S3Buckets extends React.Component {
 
-  nameFormatter(cell, row) {    
+  nameFormatter(cell, row) {
     return <Link to={'/dashboard/aws/s3/' + cell}>{cell}</Link>;
   }
 
   render() {
-
     return (
       <BootstrapTable
         ref='table'
@@ -28,8 +27,7 @@ export default class S3Buckets extends React.Component {
           noDataText: 'No Buckets'
         }}
         data={this.props.buckets}
-        selectRow={selectRowProp}
-        >
+        selectRow={selectRowProp}>
         <TableHeaderColumn
           dataFormat={this.nameFormatter}
           dataField='Name'
