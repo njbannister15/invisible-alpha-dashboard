@@ -29,10 +29,9 @@ export default class Root extends Component {
         <div>
           <BrowserRouter >
             <div>
-              <Route exact path="/" component={Dashboard}/>
+              <Route path="/dashboard" component={Dashboard}/>
               <Route path='/register' component={CustomerRegistration}/>
               <Route path='/login' component={Login}/>
-
             </div>
           </BrowserRouter>
           {devTools}

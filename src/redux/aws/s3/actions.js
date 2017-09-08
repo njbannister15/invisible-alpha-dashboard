@@ -69,3 +69,39 @@ export const getObjects = (name) => {
     });
   }
 }
+export const uploadFile = (bucket, file) => {
+  return (dispatch) => {
+
+    const formData = new FormData();
+    formData.append('file', file);
+
+    let opts = {
+      method: 'POST',
+      'Accept': 'application/json, */*',
+      body: formData
+    };
+
+    return apiFetch('/s3/buckets/' + bucket + '/' + file.name, opts).then((response) => {
+      if (response.ok) {
+        response
+          .json()
+          .then(data => {
+            dispatch(uploadSuccess(data))
+          })
+      } else {
+        dispatch(uploadFail(response.statusText));
+      }
+    }).catch((error) => {
+      dispatch(uploadFail(GET_OBJECTS_FAILURE, error.message));
+    });
+
+  }
+}
+
+export function uploadSuccess({data}) {
+  return {type: 'UPLOAD_DOCUMENT_SUCCESS', data};
+}
+
+export function uploadFail(error) {
+  return {type: 'UPLOAD_DOCUMENT_FAIL', error};
+}
